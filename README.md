@@ -5,3 +5,5 @@
 
 ## Ссылки
 - [Публичная страница на GitHub Pages](https://github.com/sayuwanjj/project1.git)
+
+https://sayuwanjj.github.io/project1/
