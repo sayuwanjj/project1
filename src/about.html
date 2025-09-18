@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kleopatra</title>
     <meta name="description" content="Краткое описание главной страницы вашего сайта">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-    <meta name="description" content="Узнайте больше о нашей компании и истории">
+    <!-- <script src="main.js" defer></script> -->
 </head>
 <body>
     <header>
         <div class="topMenu">
         <a href="index.html">
-            <img src="../assets/new_logo.png" alt="Kleopatra" class="imgnogti">
+            <img src="../assets/new_logo.png" alt="Kleopatra" class="imgponi">
         </a>
          <button class="theme-toggle" type="button" aria-pressed="false">Тема</button>
             <script defer>
@@ -33,18 +32,19 @@
                     localStorage.setItem(KEY, isDark ? 'dark' : 'light');
                 });
             </script>
-            <a href="/">Kleopatra</a>
-    </div>
+        <!-- Главное меню навигации -->
+         </div>
         <nav>
             <ul>
-                <li><a href="index.html" class="menu">Главная</a></li>
-                <li><a href="about.html" class="menu">О нас</a></li>
+               <li><a href="index.html" class="menu">Главная</a></li>
+                <li><a href="about.html" class="menu activePage">О нас</a></li>
                 <li><a href="contacts.html" class="menu">Контакты</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- Простые "хлебные крошки" -->
         <nav aria-label="Хлебные крошки">
             <a href="index.html">Главная</a> →
             <span>О нас</span>
@@ -62,7 +62,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Kleopatra. Все права защищены.</p>
+        <p>&copy; 2025 Клеопатра. Все права защищены.</p>
         <p>Телефон: +7 (123) 456-78-90</p>
     </footer>
 </body>
