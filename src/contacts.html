@@ -1,50 +1,105 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - Название вашего сайта</title>
+    <title>Mylttlponiserial</title>
     <meta name="description" content="Краткое описание главной страницы вашего сайта">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
     <title>Наши контакты</title>
-    <meta name="contacts" content="Узнайте больше о нашей компании и истории">
+    <meta name="description" content="Узнайте больше о нашей компании и истории">
+    <link rel="stylesheet" href="csgo.css">
+    <script src="main.js" defer></script>
 </head>
+
 <body>
     <header>
-            <a href="/">Клеопатра</a>
+        <div class="topMenu">
+        <a href="index.html" id="logo-link">
+            <img src="../assets/new_logo.png" alt="Mylttlponiserial" class="imgponi">
+        </a>
+         <button class="theme-toggle" type="button" aria-pressed="false">Тема</button>
+            <script defer>
+                const KEY = 'theme', btn = document.querySelector('.theme-toggle');
+                const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+                // Автовыбор: системная тема или сохранённый выбор пользователя
+                if (localStorage.getItem(KEY) === 'dark' || (!localStorage.getItem(KEY) &&
+                    prefersDark)) {
+                    document.body.classList.add('theme-dark');
+                    btn?.setAttribute('aria-pressed', 'true');
+                }
+                // Переключение по кнопке с сохранением в localStorage
+                btn?.addEventListener('click', () => {
+                    const isDark = document.body.classList.toggle('theme-dark');
+                    btn.setAttribute('aria-pressed', String(isDark));
+                    localStorage.setItem(KEY, isDark ? 'dark' : 'light');
+                });
+            </script>
+        <!-- Главное меню навигации -->
+         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="index.html" class="menu">Главная</a></li>
+                <li><a href="about.html" class="menu">О нас</a></li>
+                <li><a href="contacts.html" class="menu activePage">Контакты</a></li>
             </ul>
         </nav>
     </header>
 
+
     <main>
+        <!-- Простые "хлебные крошки" -->
         <nav aria-label="Хлебные крошки">
-            <a href="index.html">Главная</a> →
-            <span>О нас</span>
+            <a href="index.html" class="menu">Главная</a> →
+            <span>Наши контакты</span>
         </nav>
 
-        <h1>Контакты</h1>
+        <h1>Контакты для связи с нами:</h1>
         <section>
-            <h2>Ген. директор</h2>
-            <p>89162226008</p>
+            <h2>Главный менеджер компании:</h2>
+            <p>+7 981 333 41 55</p>
         </section>
         <section>
-            <h2>Наша команда</h2>
-            <p>Марина -79164596528</p>
-            <p>Арина -79125856528</p>
-            <p>Таня -79164523408</p>
-        </section>
+
+            <!-- Кнопка открытия модалки -->
+            <button id="openDialog" type="button">Написать нам</button>
+            <!-- Модалка с формой -->
+            <dialog id="contactDialog" aria-labelledby="dialogTitle">
+                <h2 id="dialogTitle">Обратная связь</h2>
+                <form id="contactForm" method="dialog" novalidate>
+                    <label for="name">Имя</label>
+                    <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name">
+                    <label for="email">E-mail</label>
+                    <input id="email" name="email" type="email" required autocomplete="email">
+                    <label for="phone">Телефон</label>
+                    <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+                        aria-describedby="phoneHelp" placeholder="+7 (___) ___-__-__" required
+                        pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+                    <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+                    <label for="date">Дата</label>
+                    <input id="date" name="date" type="date">
+                    <label for="topic">Тема</label>
+                    <select id="topic" name="topic" required>
+                        <option value="">Выберите тему</option>
+                        <option>Вопрос</option>
+                        <option>Заказ</option>
+                    </select>
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <div class="form-actions">
+                        <button type="button" id="closeDialog">Закрыть</button>
+                        <button type="submit">Отправить</button>
+                    </div>
+                </form>
+            </dialog>
+
     </main>
 
     <footer>
-
-        <p>&copy; 2025 Клеопатра. Все права защищены.</p>
+        <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
         <p>Телефон: +7 (123) 456-78-90</p>
     </footer>
 </body>
+
 </html>
